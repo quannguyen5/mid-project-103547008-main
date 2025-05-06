@@ -22,14 +22,14 @@ public class PositionAPI
     public Collection<DriverStatusVo> match(double longitude, double latitude)
     {
         ResponseEntity<Collection<DriverStatusVo>> matchResponse = restTemplate.exchange(
-                "http://QBIKE-POSITION/api/position/match?longitude=" + longitude + "&latitude=" + latitude,
+                "http://POSITION-SERVICE/api/position/match?longitude=" + longitude + "&latitude=" + latitude,
                 HttpMethod.GET, null,
                 new ParameterizedTypeReference<Collection<DriverStatusVo>>() {
                 });
         return matchResponse.getBody();
     }
 
-    public Collection<DriverStatusVo> defaultMatch(double longitude, double latitude)
+    public Collection<DriverStatusVo> defaultMatch(double longitude, double latitude, Throwable throwable)
     {
         return new ArrayList<>();
     }

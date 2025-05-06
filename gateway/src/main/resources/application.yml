@@ -1,12 +1,19 @@
 # gateway/src/main/resources/application.yml
+
 spring:
+  application:
+    name: gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - id: uc-service
           uri: lb://UC-SERVICE
           predicates:
-            - Path=/api/users/**
+            - Path=/users/**
         - id: position-service
           uri: lb://POSITION-SERVICE
           predicates:
@@ -19,3 +26,20 @@ spring:
           uri: lb://INTENTION-SERVICE
           predicates:
             - Path=/api/intentions/**
+
+server:
+  port: 8800
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.web.reactive: DEBUG
+    reactor.netty: DEBUG

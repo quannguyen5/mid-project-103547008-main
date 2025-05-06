@@ -1,3 +1,4 @@
+HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -8,6 +9,7 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea
 *.iws
 *.iml
 *.ipr
@@ -21,6 +23,12 @@ target/
 .springBeans
 .sts4-cache
 
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -33,6 +41,4 @@ build/
 
 ### VS Code ###
 .vscode/
-
-### Mac OS ###
-.DS_Store
+/.idea
